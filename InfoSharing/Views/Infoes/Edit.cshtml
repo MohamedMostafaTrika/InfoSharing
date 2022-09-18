@@ -1,0 +1,39 @@
+﻿@model InfoSharing.Models.Info
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Web_development</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="InfoQuestion" class="control-label">Question</label>
+                <input asp-for="InfoQuestion" class="form-control" />
+                <span asp-validation-for="InfoQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InfoAnswer" class="control-label">Answer</label>
+                <input asp-for="InfoAnswer" class="form-control" />
+                <span asp-validation-for="InfoAnswer" class="text-danger"></span>
+            </div>
+            <hr >
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="as_btn" asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

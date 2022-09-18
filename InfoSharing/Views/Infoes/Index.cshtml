@@ -1,0 +1,38 @@
+﻿@model IEnumerable<InfoSharing.Models.Info>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Web_development</h1>
+<br>
+<h2>Write Your Question</h2>
+<p>
+    <a class="as_btn" asp-action="Create">Press here</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              <h1>  Question</h1>
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td >
+                @Html.DisplayFor(modelItem => item.InfoQuestion)
+            </td>
+
+            <td>
+                <a class="as_btn  respnsive_1" asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a class="as_btn respnsive_1" asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a class="as_btn respnsive_1" asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
